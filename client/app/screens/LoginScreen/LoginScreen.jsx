@@ -5,18 +5,19 @@ import {
   TextInput,
   Pressable,
   TouchableOpacity,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
+  Image,
 } from "react-native";
+
+import Logo from "../../../assets/WN.png";
+import Google from "../../../assets/Socials/Google.png";
 
 import { Ionicons } from "@expo/vector-icons";
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   return (
     // <KeyboardAvoidingView
-    //   behavior={Platform.OS === "ios" ? "padding" : "height"}
     //   style={{ flex: 1 }}
+    //   behavior={Platform.OS === "ios" ? "padding" : "height"}
     // >
     <View style={styles.container}>
       <View
@@ -27,31 +28,19 @@ const LoginScreen = () => {
           width: "100%",
         }}
       >
-        <View
-          style={{
-            width: 100,
-            height: 100,
-            borderRadius: 9999,
-            backgroundColor: "black",
-            marginBottom: 32,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Text style={{ color: "white", fontSize: 32, fontWeight: "bold" }}>
-            WH
-          </Text>
+        <View>
+          <Image style={styles.logo} source={Logo} />
         </View>
-        <Text
+        {/* <Text
           style={{
-            fontSize: 26,
+            fontSize: 24,
             fontWeight: "bold",
             color: "#111",
             marginBottom: 8,
           }}
         >
           Welcome to Who's Next!
-        </Text>
+        </Text> */}
         <Text
           style={{
             fontSize: 14,
@@ -60,7 +49,7 @@ const LoginScreen = () => {
             marginBottom: 32,
           }}
         >
-          Don’t just search. Swipe.
+          Don’t just search. Swipe
         </Text>
 
         <TextInput
@@ -68,19 +57,7 @@ const LoginScreen = () => {
           placeholderTextColor="#888"
           style={styles.input}
         />
-        <View
-          style={{
-            width: "100%",
-            height: 50,
-            backgroundColor: "#f1f1f1",
-            borderRadius: 25,
-            paddingHorizontal: 20,
-            marginBottom: 16,
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+        <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Password"
             placeholderTextColor="#888"
@@ -96,18 +73,53 @@ const LoginScreen = () => {
           <Text style={styles.buttonText}>LOGIN</Text>
         </Pressable>
 
-        <View>
+        <Text style={{ color: "#888", marginBottom: 16 }}>or</Text>
+
+        <View
+          style={{
+            width: "100%",
+            height: 50,
+            backgroundColor: "white",
+            borderWidth: 0.5,
+            borderColor: "black",
+            borderRadius: 25,
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <Image source={Google} style={{ width: 30, height: 30 }} />
+            <Text style={{ color: "#888", fontWeight: "500" }}>
+              Continue with Google
+            </Text>
+          </View>
+        </View>
+
+        {/* <View>
           <Text style={{ color: "#888", fontSize: 14, marginBottom: 24 }}>
             Forgot Password?
           </Text>
-        </View>
+        </View> */}
       </View>
 
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text style={{ fontSize: 14 }}>
-          Don't have an account?
-          <Text style={{ color: "#888" }}> Register</Text>
-        </Text>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <Text
+            style={{
+              fontSize: 14,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Don't have an account?
+          </Text>
+          <Pressable
+            style={{ alignItems: "center", justifyContent: "center" }}
+            onPress={() => navigation.navigate("Signup")}
+          >
+            <Text style={{ color: "#888" }}> Register</Text>
+          </Pressable>
+        </View>
       </View>
     </View>
     // </KeyboardAvoidingView>
@@ -123,6 +135,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     backgroundColor: "white",
   },
+  logo: {
+    width: 200,
+    height: 200,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   input: {
     width: "100%",
     height: 50,
@@ -131,6 +149,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 16,
     fontSize: 16,
+  },
+
+  passwordContainer: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "#f1f1f1",
+    borderRadius: 25,
+    paddingHorizontal: 20,
+    marginBottom: 16,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 
   passwordInput: {
