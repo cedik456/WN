@@ -6,60 +6,46 @@ import {
   Pressable,
   TouchableOpacity,
   Image,
+  Alert,
 } from "react-native";
 
-import Logo from "../../../assets/WN.png";
+import Logo from "../../../assets/Logo2.png";
 import Google from "../../../assets/Socials/Google.png";
 
 import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 
 const LoginScreen = ({ navigation }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    if (email === "cedric@gmail.com" && password === "123456") {
+      navigation.navigate("Home");
+    } else {
+      Alert.alert("Login Failed", "Invalid email or password");
+    }
+  };
   return (
-    // <KeyboardAvoidingView
-    //   style={{ flex: 1 }}
-    //   behavior={Platform.OS === "ios" ? "padding" : "height"}
-    // >
     <View style={styles.container}>
-      <View
-        style={{
-          flex: 4,
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
+      <View style={styles.inputsContainer}>
         <View>
           <Image style={styles.logo} source={Logo} />
         </View>
-        {/* <Text
-          style={{
-            fontSize: 24,
-            fontWeight: "bold",
-            color: "#111",
-            marginBottom: 8,
-          }}
-        >
-          Welcome to Who's Next!
-        </Text> */}
-        <Text
-          style={{
-            fontSize: 14,
-            fontWeight: "bold",
-            color: "#888",
-            marginBottom: 32,
-          }}
-        >
-          Don’t just search. Swipe
-        </Text>
+        <Text style={styles.phrase}>Swipe, Match, Hire</Text>
 
         <TextInput
           placeholder="Email"
+          value={email}
+          onChangeText={setEmail}
           placeholderTextColor="#888"
           style={styles.input}
         />
         <View style={styles.passwordContainer}>
           <TextInput
             placeholder="Password"
+            value={password}
+            onChangeText={setPassword}
             placeholderTextColor="#888"
             secureTextEntry={true}
             style={styles.passwordInput}
@@ -69,29 +55,16 @@ const LoginScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        <Pressable style={styles.button}>
+        <Pressable style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>LOGIN</Text>
         </Pressable>
 
         <Text style={{ color: "#888", marginBottom: 16 }}>or</Text>
 
-        <View
-          style={{
-            width: "100%",
-            height: 50,
-            backgroundColor: "white",
-            borderWidth: 0.5,
-            borderColor: "black",
-            borderRadius: 25,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <Image source={Google} style={{ width: 30, height: 30 }} />
-            <Text style={{ color: "#888", fontWeight: "500" }}>
-              Continue with Google
-            </Text>
+        <View style={styles.socialsContainer}>
+          <View style={styles.flexRow}>
+            <Image source={Google} style={styles.socialsIcon} />
+            <Text style={styles.socialsText}>Continue with Google</Text>
           </View>
         </View>
 
@@ -102,19 +75,11 @@ const LoginScreen = ({ navigation }) => {
         </View> */}
       </View>
 
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text
-            style={{
-              fontSize: 14,
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            Don't have an account?
-          </Text>
+      <View style={styles.forgotPasswordContainer}>
+        <View style={styles.flexRow}>
+          <Text style={styles.forgotPasswordText}>Don't have an account?</Text>
           <Pressable
-            style={{ alignItems: "center", justifyContent: "center" }}
+            style={styles.alignCenter}
             onPress={() => navigation.navigate("Signup")}
           >
             <Text style={{ color: "#888" }}> Register</Text>
@@ -129,17 +94,39 @@ const LoginScreen = ({ navigation }) => {
 export default LoginScreen;
 
 const styles = StyleSheet.create({
+  flexRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+
+  alignCenter: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   container: {
     flex: 1,
     alignItems: "center",
     paddingHorizontal: 24,
     backgroundColor: "white",
   },
-  logo: {
-    width: 200,
-    height: 200,
+
+  inputsContainer: {
+    flex: 4,
     justifyContent: "center",
     alignItems: "center",
+    width: "100%",
+  },
+  logo: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  phrase: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#888",
+    marginBottom: 32,
   },
   input: {
     width: "100%",
@@ -180,5 +167,38 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
     fontWeight: "700",
+  },
+
+  socialsContainer: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "white",
+    borderWidth: 0.5,
+    borderColor: "black",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  socialsText: {
+    color: "#888",
+    fontWeight: "500",
+  },
+
+  socialsIcon: {
+    width: 30,
+    height: 30,
+  },
+
+  forgotPasswordContainer: {
+    flex: 0.5,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  forgotPasswordText: {
+    fontSize: 14,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
