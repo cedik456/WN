@@ -4,7 +4,6 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import HomepageLogo from "../assets/Logo3.png";
 import {
   Ionicons,
-  FontAwesome5,
   FontAwesome6,
   AntDesign,
   MaterialCommunityIcons,
@@ -15,8 +14,11 @@ import Avatar2 from "../assets/Avatars/Avatar2.png";
 import Avatar3 from "../assets/Avatars/Avatar3.png";
 import Avatar5 from "../assets/Avatars/Avatar5.png";
 import Avatar6 from "../assets/Avatars/Avatar6.png";
+import OverlayLabel from "../components/OverlayLabel";
+import router, { useRouter } from "expo-router";
 
 const Home = () => {
+  const router = useRouter();
   const mockProfiles = [
     {
       name: "Charles, 24",
@@ -66,7 +68,12 @@ const Home = () => {
         {/* Header */}
         <View style={styles.header}>
           <Image source={HomepageLogo} />
-          <Ionicons name="options-outline" size="24" color="#000" />
+          <Ionicons
+            name="options-outline"
+            size="24"
+            color="#000"
+            onPress={() => router.push("./filters")}
+          />
         </View>
       </View>
       <View style={styles.swipeContainer}>
@@ -75,30 +82,39 @@ const Home = () => {
           renderCard={(card) => <ProfileCard card={card} />}
           renderOverlayLabels={{
             left: {
-              title: "NOPE",
+              element: <OverlayLabel text="NOPE" color="red" />,
               style: {
-                label: {
-                  color: "red",
-                  fontSize: 24,
+                wrapper: {
+                  position: "absolute",
+                  top: 20,
+                  left: 20,
+                  zIndex: 999,
                 },
               },
             },
             right: {
-              title: "LIKE",
+              element: <OverlayLabel text="LIKE" color="green" />,
               style: {
-                label: {
-                  color: "green",
-                  fontSize: 24,
+                wrapper: {
+                  position: "absolute",
+                  top: 20,
+                  right: 20,
+                  zIndex: 999,
                 },
               },
             },
           }}
+          swipeThreshold={50}
+          overlayLabelsOpacity={1}
           stackSize={3}
           cardIndex={0}
+          useViewOverflow={false}
           backgroundColor="transparent"
           cardVerticalMargin={10}
           disableTopSwipe
           disableBottomSwipe
+          onSwipedLeft={() => console.log("NOPE overlay triggered")}
+          onSwipedRight={() => console.log("LIKE overlay triggered")}
         />
       </View>
       <View style={styles.bottomNav}>

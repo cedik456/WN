@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
   name: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: 600,
   },
 
   experience: {
