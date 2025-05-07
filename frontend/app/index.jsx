@@ -14,7 +14,7 @@ import Avatar2 from "../assets/Avatars/Avatar2.png";
 import Avatar3 from "../assets/Avatars/Avatar3.png";
 import Avatar5 from "../assets/Avatars/Avatar5.png";
 import Avatar6 from "../assets/Avatars/Avatar6.png";
-import router, { useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 
 const Home = () => {
   const router = useRouter();
@@ -78,51 +78,51 @@ const Home = () => {
       <View style={styles.swipeContainer}>
         <Swiper
           cards={mockProfiles}
-          renderCard={(card) => <ProfileCard card={card} />}
-          overlayLabels={{
-            left: {
-              title: "NOPE",
-              style: {
-                label: {
-                  color: "red",
-                  fontSize: 24,
-                  fontWeight: "bold",
-                  backgroundColor: "white",
-                  borderWidth: 2,
-                  borderColor: "red",
-                  padding: 8,
-                  borderRadius: 6,
-                },
-                wrapper: {
-                  position: "absolute",
-                  top: 40,
-                  left: 20,
-                  zIndex: 999,
-                },
-              },
-            },
-            right: {
-              title: "LIKE",
-              style: {
-                label: {
-                  color: "green",
-                  fontSize: 24,
-                  fontWeight: "bold",
-                  backgroundColor: "white",
-                  borderWidth: 2,
-                  borderColor: "green",
-                  padding: 8,
-                  borderRadius: 6,
-                },
-                wrapper: {
-                  position: "absolute",
-                  top: 40,
-                  right: 20,
-                  zIndex: 999,
-                },
-              },
-            },
-          }}
+          renderCard={(card, index) => <ProfileCard key={index} card={card} />}
+          // overlayLabels={{
+          //   left: {
+          //     title: "NOPE",
+          //     style: {
+          //       label: {
+          //         color: "red",
+          //         fontSize: 24,
+          //         fontWeight: "bold",
+          //         backgroundColor: "white",
+          //         borderWidth: 2,
+          //         borderColor: "red",
+          //         padding: 8,
+          //         borderRadius: 6,
+          //       },
+          //       wrapper: {
+          //         position: "absolute",
+          //         top: 40,
+          //         left: 20,
+          //         zIndex: 999,
+          //       },
+          //     },
+          //   },
+          //   right: {
+          //     title: "LIKE",
+          //     style: {
+          //       label: {
+          //         color: "green",
+          //         fontSize: 24,
+          //         fontWeight: "bold",
+          //         backgroundColor: "white",
+          //         borderWidth: 2,
+          //         borderColor: "green",
+          //         padding: 8,
+          //         borderRadius: 6,
+          //       },
+          //       wrapper: {
+          //         position: "absolute",
+          //         top: 40,
+          //         right: 20,
+          //         zIndex: 999,
+          //       },
+          //     },
+          //   },
+          // }}
           swipeThreshold={50}
           overlayLabelsOpacity={1}
           stackSize={3}
@@ -132,8 +132,6 @@ const Home = () => {
           cardVerticalMargin={10}
           disableTopSwipe
           disableBottomSwipe
-          onSwipedLeft={() => console.log("NOPE overlay triggered")}
-          onSwipedRight={() => console.log("LIKE overlay triggered")}
         />
       </View>
       <View style={styles.bottomNav}>
@@ -177,44 +175,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 50,
     marginBottom: 20,
-  },
-
-  name: {
-    fontSize: 18,
-    fontWeight: "600",
-  },
-
-  experience: {
-    color: "#555",
-    marginTop: 5,
-  },
-
-  job: {
-    fontSize: 16,
-    fontWeight: 500,
-    color: "#333",
-  },
-
-  skillsTitle: {
-    fontSize: 14,
-    fontWeight: "700",
-    marginTop: 24,
-    marginBottom: 10,
-  },
-
-  skillsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10,
-    maxWidth: 280,
-  },
-
-  skillPill: {
-    flexDirection: "row",
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 9999,
-    alignItems: "center",
   },
 
   bottomNav: {

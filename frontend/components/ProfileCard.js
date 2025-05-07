@@ -5,10 +5,10 @@ import { Ionicons } from "@expo/vector-icons";
 const ProfileCard = ({ card }) => {
   return (
     <View style={[styles.card, { backgroundColor: card.bgColor }]}>
-      <Image style={styles.avatar} source={card.avatar} resizeMode="contain" />
+      <Image style={styles.avatar} source={card.avatar} resizeMode="cover" />
       <View style={[styles.flexRow, { marginBottom: 10 }]}>
         <Text style={styles.name}>{card.name} </Text>
-        <Ionicons name="checkmark-circle" size="20" color="#3b82f6" />
+        <Ionicons name="checkmark-circle" size={20} color="#3b82f6" />
       </View>
       <Text style={styles.job}>{card.job}</Text>
       <Text style={styles.experience}>{card.experience}</Text>
@@ -20,7 +20,6 @@ const ProfileCard = ({ card }) => {
           <View key={index} style={[styles.skillPill, getSkillColor(skill)]}>
             <Text
               style={{
-                fontSize: 12,
                 color: skill === "Github" ? "white" : "black",
               }}
             >
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOpacity: 0.1,
     shadowRadius: 4,
-    elevation: 4,
+    elevation: 10,
     height: 550,
     backgroundColor: "#fbfbfb",
   },
