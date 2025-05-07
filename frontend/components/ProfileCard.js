@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
   name: {
     fontSize: 18,
-    fontWeight: 600,
+    fontWeight: "600",
   },
 
   experience: {
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 
   job: {
     fontSize: 16,
-    fontWeight: 500,
+    fontWeight: "500",
     color: "#333",
   },
 

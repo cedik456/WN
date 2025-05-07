@@ -14,7 +14,6 @@ import Avatar2 from "../assets/Avatars/Avatar2.png";
 import Avatar3 from "../assets/Avatars/Avatar3.png";
 import Avatar5 from "../assets/Avatars/Avatar5.png";
 import Avatar6 from "../assets/Avatars/Avatar6.png";
-import OverlayLabel from "../components/OverlayLabel";
 import router, { useRouter } from "expo-router";
 
 const Home = () => {
@@ -70,7 +69,7 @@ const Home = () => {
           <Image source={HomepageLogo} />
           <Ionicons
             name="options-outline"
-            size="24"
+            size={24}
             color="#000"
             onPress={() => router.push("./filters")}
           />
@@ -80,24 +79,44 @@ const Home = () => {
         <Swiper
           cards={mockProfiles}
           renderCard={(card) => <ProfileCard card={card} />}
-          renderOverlayLabels={{
+          overlayLabels={{
             left: {
-              element: <OverlayLabel text="NOPE" color="red" />,
+              title: "NOPE",
               style: {
+                label: {
+                  color: "red",
+                  fontSize: 24,
+                  fontWeight: "bold",
+                  backgroundColor: "white",
+                  borderWidth: 2,
+                  borderColor: "red",
+                  padding: 8,
+                  borderRadius: 6,
+                },
                 wrapper: {
                   position: "absolute",
-                  top: 20,
+                  top: 40,
                   left: 20,
                   zIndex: 999,
                 },
               },
             },
             right: {
-              element: <OverlayLabel text="LIKE" color="green" />,
+              title: "LIKE",
               style: {
+                label: {
+                  color: "green",
+                  fontSize: 24,
+                  fontWeight: "bold",
+                  backgroundColor: "white",
+                  borderWidth: 2,
+                  borderColor: "green",
+                  padding: 8,
+                  borderRadius: 6,
+                },
                 wrapper: {
                   position: "absolute",
-                  top: 20,
+                  top: 40,
                   right: 20,
                   zIndex: 999,
                 },
