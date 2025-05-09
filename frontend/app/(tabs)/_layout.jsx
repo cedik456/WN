@@ -23,7 +23,14 @@ const TabLayout = () => {
           <Ionicons name="person" size={24} color="#5A5A5A" />
         </TouchableOpacity>
 
-        <FontAwesome6 name="bars-staggered" size={24} color="#5A5A5A" />
+        <TouchableOpacity
+          onPress={() => {
+            router.push("/");
+            console.log("Helloowww");
+          }}
+        >
+          <FontAwesome6 name="bars-staggered" size={24} color="#5A5A5A" />
+        </TouchableOpacity>
 
         <AntDesign name="like1" size={24} color="black" />
 
