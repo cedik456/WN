@@ -1,11 +1,12 @@
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Slot } from "expo-router";
+import "../global.css";
 
 const RootLayout = () => {
   return (
     <SafeAreaView
-      style={{ flex: 1, backgroundColor: "white" }}
+      className="flex-1 bg-white"
       edges={["left", "right", "bottom", "top"]}
     >
       <Slot />
