@@ -1,10 +1,10 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Text } from 'react-native';
 
-export default function Filters() {
+export default function Profile() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <Text style={styles.title}>Filters Page</Text>
+        <Text style={styles.title}>Profile Page</Text>
       </View>
     </SafeAreaView>
   );

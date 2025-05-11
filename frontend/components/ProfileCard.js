@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
+import { StyleSheet, Text, View, Image } from 'react-native';
+import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
 
 const ProfileCard = ({ card }) => {
   return (
@@ -20,7 +20,7 @@ const ProfileCard = ({ card }) => {
           <View key={index} style={[styles.skillPill, getSkillColor(skill)]}>
             <Text
               style={{
-                color: skill === "Github" ? "white" : "black",
+                color: skill === 'Github' ? 'white' : 'black',
               }}
             >
               {skill}
@@ -36,115 +36,115 @@ export default ProfileCard;
 
 const styles = StyleSheet.create({
   flexRow: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   avatar: {
     width: 300,
     height: 300,
-    alignSelf: "center",
+    alignSelf: 'center',
     marginBottom: 20,
   },
   card: {
-    alignSelf: "center",
+    alignSelf: 'center',
     borderRadius: 20,
     padding: 20,
     shadowOffset: { width: 0, height: -2 },
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 10,
     height: 550,
-    backgroundColor: "#fbfbfb",
+    backgroundColor: '#fbfbfb',
   },
 
   name: {
     fontSize: 18,
-    fontWeight: "600",
+    fontWeight: '600',
   },
 
   experience: {
-    color: "#555",
+    color: '#555',
     marginTop: 5,
   },
 
   job: {
     fontSize: 16,
-    fontWeight: "500",
-    color: "#333",
+    fontWeight: '500',
+    color: '#333',
   },
 
   skillsTitle: {
     fontSize: 14,
-    fontWeight: "700",
+    fontWeight: '700',
     marginTop: 24,
     marginBottom: 10,
   },
 
   skillsContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: 10,
     maxWidth: 280,
   },
 
   skillPill: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 9999,
-    alignItems: "center",
+    alignItems: 'center',
   },
   bgReact: {
-    backgroundColor: "#e0f2fe",
+    backgroundColor: '#e0f2fe',
   },
   bgMongo: {
-    backgroundColor: "#d1fae5",
+    backgroundColor: '#d1fae5',
   },
   bgJs: {
-    backgroundColor: "#fef08a",
+    backgroundColor: '#fef08a',
   },
   bgAngular: {
-    backgroundColor: "#fecaca",
+    backgroundColor: '#fecaca',
   },
   bgTailwind: {
-    backgroundColor: "#bae6fd",
+    backgroundColor: '#bae6fd',
   },
   bgBlack: {
-    backgroundColor: "#000000",
+    backgroundColor: '#000000',
   },
   bgPurple: {
-    backgroundColor: "#e0e7ff",
+    backgroundColor: '#e0e7ff',
   },
   bgFigma: {
-    backgroundColor: "#fbcfe8",
+    backgroundColor: '#fbcfe8',
   },
   bgAdobe: {
-    backgroundColor: "#fca5a5",
+    backgroundColor: '#fca5a5',
   },
 });
 
 const getSkillColor = (skill) => {
   switch (skill.toLowerCase()) {
-    case "react":
+    case 'react':
       return styles.bgReact;
-    case "mongodb":
+    case 'mongodb':
       return styles.bgMongo;
-    case "javascript":
+    case 'javascript':
       return styles.bgJs;
-    case "angular":
+    case 'angular':
       return styles.bgAngular;
-    case "tailwind":
+    case 'tailwind':
       return styles.bgTailwind;
-    case "github":
+    case 'github':
       return styles.bgBlack;
-    case "php":
+    case 'php':
       return styles.bgPurple;
-    case "figma":
+    case 'figma':
       return styles.bgFigma;
-    case "adobe xd":
+    case 'adobe xd':
       return styles.bgAdobe;
     default:
-      return { backgroundColor: "#e0e0e0" };
+      return { backgroundColor: '#e0e0e0' };
   }
 };

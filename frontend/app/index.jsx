@@ -15,7 +15,6 @@ import Avatar3 from '../assets/Avatars/Avatar3.png';
 import Avatar5 from '../assets/Avatars/Avatar5.png';
 import Avatar6 from '../assets/Avatars/Avatar6.png';
 import { useRouter } from 'expo-router';
-import BottomNav from '../components/BottomNav';
 
 const Home = () => {
   const router = useRouter();
@@ -76,7 +75,7 @@ const Home = () => {
           />
         </View>
       </View>
-      <View style={styles.swipeContainer}>
+      <View style={styles.swipeContainer} pointerEvents="box-none">
         <Swiper
           cards={mockProfiles}
           renderCard={(card, index) => <ProfileCard key={index} card={card} />}
@@ -130,12 +129,11 @@ const Home = () => {
           cardIndex={0}
           useViewOverflow={false}
           backgroundColor="transparent"
-          cardVerticalMargin={10}
+          cardVerticalMargin={0}
           disableTopSwipe
           disableBottomSwipe
         />
       </View>
-      <BottomNav />
     </SafeAreaView>
   );
 };
@@ -146,7 +144,8 @@ const styles = StyleSheet.create({
   swipeContainer: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    marginBottom: 80,
   },
   safeContainer: {
     flex: 1,
@@ -171,14 +170,5 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginTop: 50,
     marginBottom: 20,
-  },
-
-  bottomNav: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    paddingTop: 12,
-    paddingBottom: 12,
-    borderTopColor: '#eee',
-    backgroundColor: 'white',
   },
 });
