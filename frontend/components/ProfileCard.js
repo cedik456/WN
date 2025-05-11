@@ -6,7 +6,7 @@ const ProfileCard = ({ card }) => {
   return (
     <View style={[styles.card, { backgroundColor: card.bgColor }]}>
       <Image style={styles.avatar} source={card.avatar} resizeMode="cover" />
-      <View style={[styles.flexRow, { marginBottom: 10 }]}>
+      <View className="flex-row items-center mb-2">
         <Text style={styles.name}>{card.name} </Text>
         <Ionicons name="checkmark-circle" size={20} color="#3b82f6" />
       </View>
@@ -35,10 +35,6 @@ const ProfileCard = ({ card }) => {
 export default ProfileCard;
 
 const styles = StyleSheet.create({
-  flexRow: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
   avatar: {
     width: 300,
     height: 300,
@@ -54,7 +50,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 10,
-    height: 550,
+    height: 560,
     backgroundColor: "#fbfbfb",
   },
 
