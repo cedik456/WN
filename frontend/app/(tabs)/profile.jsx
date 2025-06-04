@@ -1,7 +1,6 @@
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
-import Avatar6 from "../../assets/Avatars/Avatar6.png";
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import Avatar6 from '../../assets/Avatars/Avatar6.png';
 
 const Profile = () => {
   return (
@@ -9,24 +8,24 @@ const Profile = () => {
       <View
         style={{
           marginVertical: 20,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
         }}
       >
-        <Text style={{ fontSize: 24, fontWeight: "700" }}>Profile</Text>
+        <Text style={{ fontSize: 24, fontWeight: '700' }}>Profile</Text>
         <Ionicons name="settings-outline" size={24} />
       </View>
-      <View style={{ flexDirection: "row", alignItems: "center", gap: 20 }}>
+      <View style={{ flexDirection: 'row', alignItems: 'center', gap: 20 }}>
         <View
           style={{
             width: 110,
             height: 110,
             borderRadius: 55,
             borderWidth: 2,
-            borderColor: "#000",
-            justifyContent: "center",
-            alignItems: "center",
+            borderColor: '#000',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
           <Image
@@ -35,11 +34,11 @@ const Profile = () => {
           />
         </View>
         <View style={{ gap: 5 }}>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
-            <Text style={{ fontSize: 25, fontWeight: "bold" }}>Charles</Text>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: 5 }}>
+            <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Charles</Text>
             <Ionicons name="checkmark-circle-outline" size={24} />
           </View>
-          <View style={[styles.wrapper, { backgroundColor: "#E0E0E0" }]}>
+          <View style={[styles.wrapper, { backgroundColor: '#E0E0E0' }]}>
             <Text>Complete Profile</Text>
           </View>
         </View>
@@ -47,15 +46,15 @@ const Profile = () => {
       <View style={{ marginTop: 40, marginBottom: 20 }}>
         <View
           style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
           }}
         >
           <Text
             style={[
               styles.wrapper,
-              { backgroundColor: "black", color: "white" },
+              { backgroundColor: 'black', color: 'white' },
             ]}
           >
             Profile Insights
@@ -73,7 +72,7 @@ const Profile = () => {
           <View
             style={{
               borderWidth: 1,
-              borderColor: "black",
+              borderColor: 'black',
               borderRadius: 10,
               height: 150,
               padding: 10,
@@ -81,19 +80,19 @@ const Profile = () => {
           >
             <View
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: 16, fontWeight: "500" }}>Portfolio</Text>
+              <Text style={{ fontSize: 16, fontWeight: '500' }}>Portfolio</Text>
               <Ionicons name="add-outline" size={24} color="#000" />
             </View>
           </View>
           <View
             style={{
               borderWidth: 1,
-              borderColor: "black",
+              borderColor: 'black',
               borderRadius: 10,
               height: 150,
               padding: 10,
@@ -101,19 +100,19 @@ const Profile = () => {
           >
             <View
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: 16, fontWeight: "500" }}>Projects</Text>
+              <Text style={{ fontSize: 16, fontWeight: '500' }}>Projects</Text>
               <Ionicons name="add-outline" size={24} color="#000" />
             </View>
           </View>
           <View
             style={{
               borderWidth: 1,
-              borderColor: "black",
+              borderColor: 'black',
               borderRadius: 10,
               height: 150,
               padding: 10,
@@ -121,12 +120,12 @@ const Profile = () => {
           >
             <View
               style={{
-                flexDirection: "row",
-                justifyContent: "space-between",
-                alignItems: "center",
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: 16, fontWeight: "500" }}>
+              <Text style={{ fontSize: 16, fontWeight: '500' }}>
                 Experience
               </Text>
               <Ionicons name="add-outline" size={24} color="#000" />
@@ -145,7 +144,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 15,
-    overflow: "hidden",
-    alignSelf: "flex-start",
+    overflow: 'hidden',
+    alignSelf: 'flex-start',
   },
 });
