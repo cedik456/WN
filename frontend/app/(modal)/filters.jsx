@@ -1,4 +1,3 @@
-import 'nativewind/patch';
 import { View, Text } from 'react-native';
 
 const filters = () => {

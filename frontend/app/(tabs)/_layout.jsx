@@ -1,5 +1,3 @@
-import 'nativewind/patch';
-import { styled } from 'nativewind';
 import { SafeAreaView, TouchableOpacity, View } from 'react-native';
 import {
   AntDesign,
@@ -8,12 +6,6 @@ import {
   MaterialCommunityIcons,
 } from '@expo/vector-icons';
 import { Slot, useRouter } from 'expo-router';
-
-//needs styled wrapper for tailwind to work
-const IonIcon = styled(Ionicons);
-const FAIcon = styled(FontAwesome6);
-const ADIcon = styled(AntDesign);
-const MCIcon = styled(MaterialCommunityIcons);
 
 const TabLayout = () => {
   const router = useRouter();
@@ -24,34 +16,32 @@ const TabLayout = () => {
         <TouchableOpacity
           onPress={() => {
             router.push('/profile');
+            console.log('Helloowww');
           }}
         >
-          <IonIcon name="person" size={24} className="text-gray-500" />
+          <Ionicons name="person" size={24} color="#5A5A5A" />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => {
             router.push('/');
+            console.log('Helloowww');
           }}
         >
-          <FAIcon name="bars-staggered" size={24} className="text-gray-500" />
+          <FontAwesome6 name="bars-staggered" size={24} color="#5A5A5A" />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => {
-            // router.push('wherever this button goes');
-          }}
-        >
-          <ADIcon name="like1" size={24} className="text-black" />
-        </TouchableOpacity>
+        <AntDesign name="like1" size={24} color="black" />
 
-        <TouchableOpacity
+        <MaterialCommunityIcons
+          name="message"
           onPress={() => {
+            console.log('Navigate to messages');
             router.push('/messages');
           }}
-        >
-          <MCIcon name="message" size={24} className="text-gray-500" />
-        </TouchableOpacity>
+          size={24}
+          color="#5A5A5A"
+        />
       </View>
     </SafeAreaView>
   );
