@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import Swiper from 'react-native-deck-swiper';
@@ -57,10 +57,10 @@ const Home = () => {
   ];
 
   return (
-    <SafeAreaView style={{ flex: 1 }} edges={['left', 'right', 'bottom']}>
-      <View style={styles.container}>
+    <SafeAreaView className="flex-1" edges={['left', 'right', 'bottom']}>
+      <View className="px-5 bg-white">
         {/* Header */}
-        <View style={styles.header}>
+        <View className="flex-row items-center justify-between my-5">
           <Image source={HomepageLogo} />
           <Ionicons
             name="options-outline"
@@ -70,7 +70,7 @@ const Home = () => {
           />
         </View>
       </View>
-      <View style={styles.swipeContainer}>
+      <View className="flex-1 items-center justify-center">
         <Swiper
           cards={mockProfiles}
           renderCard={(card, index) => <ProfileCard key={index} card={card} />}
@@ -134,30 +134,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  swipeContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  flexRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  container: {
-    paddingHorizontal: 20,
-    backgroundColor: 'white',
-  },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginVertical: 20,
-  },
-  avatar: {
-    alignSelf: 'center',
-    marginTop: 50,
-    marginBottom: 20,
-  },
-});

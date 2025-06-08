@@ -12,8 +12,9 @@ const TabLayout = () => {
   return (
     <SafeAreaView className="flex-1 bg-white">
       <Slot />
-      <View className="absolute bottom-0 w-full h-18 flex-row justify-around items-center bg-white border-t border-gray-200">
+      <View className="footer-bar">
         <TouchableOpacity
+          className="btn"
           onPress={() => {
             router.push('/profile');
             console.log('Helloowww');
@@ -23,6 +24,7 @@ const TabLayout = () => {
         </TouchableOpacity>
 
         <TouchableOpacity
+          className="btn"
           onPress={() => {
             router.push('/');
             console.log('Helloowww');
@@ -31,17 +33,19 @@ const TabLayout = () => {
           <FontAwesome6 name="bars-staggered" size={24} color="#5A5A5A" />
         </TouchableOpacity>
 
-        <AntDesign name="like1" size={24} color="black" />
+        <TouchableOpacity className="btn">
+          <AntDesign name="like1" size={24} color="black" />
+        </TouchableOpacity>
 
-        <MaterialCommunityIcons
-          name="message"
+        <TouchableOpacity
+          className="btn"
           onPress={() => {
             console.log('Navigate to messages');
             router.push('/messages');
           }}
-          size={24}
-          color="#5A5A5A"
-        />
+        >
+          <MaterialCommunityIcons name="message" size={24} color="#5A5A5A" />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
