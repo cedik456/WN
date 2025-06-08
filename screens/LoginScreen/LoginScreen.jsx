@@ -15,7 +15,7 @@ import Google from "../../../assets/Socials/Google.png";
 import { Ionicons } from "@expo/vector-icons";
 import { useState } from "react";
 
-const LoginScreen = ({ navigation }) => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -91,7 +91,7 @@ const LoginScreen = ({ navigation }) => {
   );
 };
 
-export default LoginScreen;
+export default Login;
 
 const styles = StyleSheet.create({
   flexRow: {
