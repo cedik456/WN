@@ -22,6 +22,7 @@ const Signup = () => {
       />
 
       <SafeAreaView className="flex-1 px-6 pt-12 bg-white">
+        <Ionicons name="arrow-back" size={20} color="#000" />
         <Text className="text-[24px] font-bold text-black leading-8 ml-5">
           Can we get your number{'\n'}please?
         </Text>
