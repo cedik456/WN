@@ -1,11 +1,21 @@
-import { View, Text } from 'react-native';
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
 
 const filters = () => {
   return (
-    <View className="flex-1 justify-center items-center bg-white">
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "white",
+      }}
+    >
       <Text>filters</Text>
     </View>
   );
 };
 
 export default filters;
+
+const styles = StyleSheet.create({});
