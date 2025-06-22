@@ -1,65 +1,54 @@
-import { SafeAreaView, StyleSheet, TouchableOpacity, View } from "react-native";
-import React from "react";
+import { SafeAreaView, TouchableOpacity, View } from 'react-native';
 import {
   AntDesign,
   FontAwesome6,
   Ionicons,
   MaterialCommunityIcons,
-} from "@expo/vector-icons";
-import { Slot, useRouter } from "expo-router";
+} from '@expo/vector-icons';
+import { Slot, useRouter } from 'expo-router';
 
 const TabLayout = () => {
   const router = useRouter();
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
+    <SafeAreaView className="flex-1 bg-white">
       <Slot />
-      <View style={styles.bottomNav}>
+      <View className="footer-bar">
         <TouchableOpacity
+          className="btn"
           onPress={() => {
-            router.push("/profile");
-            console.log("Helloowww");
+            router.push('/profile');
+            console.log('Helloowww');
           }}
         >
           <Ionicons name="person" size={24} color="#5A5A5A" />
         </TouchableOpacity>
 
         <TouchableOpacity
+          className="btn"
           onPress={() => {
-            router.push("/");
-            console.log("Helloowww");
+            router.push('/');
+            console.log('Helloowww');
           }}
         >
           <FontAwesome6 name="bars-staggered" size={24} color="#5A5A5A" />
         </TouchableOpacity>
 
-        <AntDesign name="like1" size={24} color="black" />
+        <TouchableOpacity className="btn">
+          <AntDesign name="like1" size={24} color="black" />
+        </TouchableOpacity>
 
-        <MaterialCommunityIcons
-          name="message"
+        <TouchableOpacity
+          className="btn"
           onPress={() => {
-            console.log("Navigate to messages");
-            router.push("/messages");
+            console.log('Navigate to messages');
+            router.push('/messages');
           }}
-          size={24}
-          color="#5A5A5A"
-        />
+        >
+          <MaterialCommunityIcons name="message" size={24} color="#5A5A5A" />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
 export default TabLayout;
-
-const styles = StyleSheet.create({
-  bottomNav: {
-    position: "absolute",
-    bottom: 0,
-    width: "100%",
-    height: 70,
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    backgroundColor: "white",
-    borderColor: "#eee",
-  },
-});
