@@ -1,58 +1,112 @@
+import { useState } from 'react';
+import { View, Text, TextInput, Pressable, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { useRouter } from 'expo-router';
-import { Text, View, SafeAreaView, Pressable } from 'react-native';
 
-const Login = () => {
+export default function Login() {
   const router = useRouter();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [secure, setSecure] = useState(true);
+  const [remember, setRemember] = useState(false);
+
   return (
-    <View className="flex-1 bg-black">
-      <SafeAreaView className="justify-between flex-1 px-6 py-10 bg-black">
-        {/* Logo */}
-        <View className="items-center flex-1 space-y-2 mt-60 ">
-          {/* Change to image to change the logo */}
-          <Text className="text-4xl font-bold text-white">Who's Next?</Text>
-          <Text className="text-sm font-medium text-white">
-            Swipe, Match, Hire
-          </Text>
-        </View>
+    <View className="flex-1 bg-white px-6 pt-16 relative">
+      <Text className="text-5xl mt-20 font-extrabold text-center">WN</Text>
+      <Text className="text-base text-center text-black mb-20">
+        Who's Next?
+      </Text>
 
-        {/* Info about creating account */}
-        <View className="items-center px-5 mt-12 mb-5">
-          <Text className="text-xs font-medium text-center text-white">
-            By tapping ‘Create account’ or ‘Sign in’ you agree to our Terms.
-          </Text>
-        </View>
+      <Text className="text-base font-semibold mb-1">Email</Text>
+      <TextInput
+        className="border border-gray-300 rounded-lg px-4 py-3 mb-4"
+        placeholder="example@gmail.com"
+        value={email}
+        onChangeText={setEmail}
+      />
 
-        {/* Action Buttons */}
-        <View className="flex-1">
-          <Pressable className="items-center p-4 m-2 bg-white rounded-full">
-            <Text className="font-medium text-black">Continue with Google</Text>
+      {/* Password */}
+      <Text className="text-base font-semibold mb-1">Password</Text>
+      <View className="relative mb-4">
+        <TextInput
+          className="border border-gray-300 rounded-lg px-4 py-3 pr-10"
+          secureTextEntry={secure}
+          placeholder="••••••••••"
+          value={password}
+          onChangeText={setPassword}
+        />
+        <Pressable
+          className="absolute right-3 top-3"
+          onPress={() => setSecure(!secure)}
+        >
+          <Icon name={secure ? 'eye-slash' : 'eye'} size={20} color="#6b7280" />
+        </Pressable>
+      </View>
+
+      <View className="flex-row items-center justify-between mb-10">
+        <View className="flex-row items-center">
+          <Pressable onPress={() => setRemember(!remember)}>
+            <Icon
+              name={remember ? 'check-square' : 'square-o'}
+              size={20}
+              color={remember ? '#000' : '#6b7280'}
+            />
           </Pressable>
-
-          <Pressable className="items-center p-4 m-2 bg-white rounded-full">
-            <Text className="font-medium text-black">
-              Create account with Email
-            </Text>
-          </Pressable>
-
-          <Pressable
-            className="items-center p-4 m-2 bg-white rounded-full"
-            onPress={() => router.push('/(auth)/signup')}
-          >
-            <Text className="font-medium text-black">
-              Use cell phone number
-            </Text>
-          </Pressable>
+          <Text className="ml-2 text-sm">Remember me</Text>
         </View>
+        <Pressable onPress={() => router.push('/forgot-password')}>
+          <Text className="text-sm text-blue-500">Forgot password?</Text>
+        </Pressable>
+      </View>
 
-        {/* Footer */}
-        <View className="items-center mt-6 mb-10">
-          <Text className="text-sm text-white underline">
-            Trouble signing in?
-          </Text>
-        </View>
-      </SafeAreaView>
+      <Pressable className="bg-black rounded-full py-4 mb-10">
+        <Text className="text-center text-white font-semibold">Login</Text>
+      </Pressable>
+
+      <View className="flex-row items-center mb-14">
+        <View className="flex-1 h-px bg-gray-300" />
+        <Text className="px-4 text-center text-gray-400">or sign in with</Text>
+        <View className="flex-1 h-px bg-gray-300" />
+      </View>
+
+      <View className="flex-row justify-center mb-6">
+        <Pressable
+          onPress={() => router.push('/signup-google')}
+          className="mr-6"
+        >
+          <View className="w-16 h-16 bg-gray-200 rounded-full items-center justify-center">
+            <Image
+              source={{
+                uri: 'https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg',
+              }}
+              style={{ width: 32, height: 32 }}
+            />
+          </View>
+        </Pressable>
+        <Pressable
+          onPress={() => router.push('/signup-linkedin')}
+          className="mr-6"
+        >
+          <View className="w-16 h-16 bg-gray-200 rounded-full items-center justify-center">
+            <Icon name="linkedin" size={32} color="#0077B5" />
+          </View>
+        </Pressable>
+        <Pressable onPress={() => router.push('/signup-apple')}>
+          <View className="w-16 h-16 bg-gray-200 rounded-full items-center justify-center">
+            <Icon name="apple" size={32} color="#000000" />
+          </View>
+        </Pressable>
+      </View>
+
+      <Pressable
+        className="absolute bottom-9 self-center"
+        onPress={() => router.push('/signup')}
+      >
+        <Text className="text-sm text-gray-600">
+          Didn’t have an account?{' '}
+          <Text className="text-blue-500">Create an account</Text>
+        </Text>
+      </Pressable>
     </View>
   );
-};
-
-export default Login;
+}

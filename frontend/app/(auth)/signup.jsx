@@ -1,72 +1,61 @@
-import {
-  View,
-  Text,
-  TextInput,
-  Pressable,
-  SafeAreaView,
-  StatusBar,
-  Platform,
-} from 'react-native';
-import { useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { Text, View, SafeAreaView, Pressable } from 'react-native';
+import { useRouter } from 'expo-router';
 
-const Signup = () => {
-  const [country, setCountry] = useState('');
-  const [phone, setPhone] = useState('');
-
+const Login = () => {
+  const router = useRouter();
   return (
-    <View className="flex-1 bg-white">
-      <StatusBar
-        backgroundColor="white"
-        barStyle={Platform.OS === 'ios' ? 'dark-content' : 'dark-content'}
-      />
-
-      <SafeAreaView className="flex-1 px-6 pt-12 bg-white">
-        <Ionicons name="arrow-back" size={20} color="#000" />
-        <Text className="text-[24px] font-bold text-black leading-8 ml-5">
-          Can we get your number{'\n'}please?
-        </Text>
-
-        <Text className="mt-3 mb-8 ml-5 text-base leading-6 text-gray-600">
-          We only use phone numbers to make{'\n'}
-          everyone on Who’s Next? is real.
-        </Text>
-
-        {/* INPUT */}
-        <View className="flex-row mb-6 space-x-4">
-          {/* CHANGE IF DONE INSTALLING THE COUNTRY PICKER */}
-          <TextInput
-            placeholder="Country"
-            placeholderTextColor="#999"
-            className="flex-1 px-4 py-3 ml-5 text-black bg-white border border-gray-300 rounded-lg"
-            value={country}
-            onChangeText={setCountry}
-          />
-          <TextInput
-            placeholder="Phone number"
-            placeholderTextColor="#999"
-            keyboardType="phone-pad"
-            className="flex-1 px-4 py-3 ml-2 mr-5 text-black bg-white border border-gray-300 rounded-lg"
-            value={phone}
-            onChangeText={setPhone}
-          />
+    <View className="flex-1 bg-black">
+      <SafeAreaView className="justify-between flex-1 px-6 py-10 bg-black">
+        {/* Logo */}
+        <View className="items-center flex-1 space-y-2 mt-60">
+          {/* Change to image to change the logo */}
+          <Text className="text-4xl font-bold text-white">Who's Next?</Text>
+          <Text className="text-sm font-medium text-white">
+            Swipe, Match, Hire
+          </Text>
         </View>
 
-        {/* Notifying user for the privacy */}
-        <Text className="mb-10 ml-5 text-sm text-gray-400">
-          We never share this with anyone and it won’t be on your profile
-        </Text>
+        {/* Info about creating account */}
+        <View className="items-center px-5 mt-12 mb-5">
+          <Text className="text-xs font-medium text-center text-white">
+            By tapping ‘Create account’ or ‘Sign in’ you agree to our Terms.
+          </Text>
+        </View>
 
-
-        <View className="items-end">
+        {/* Action Buttons */}
+        <View className="flex-1">
           <Pressable
-            className="items-center justify-center w-12 h-12 mr-5 bg-gray-200 rounded-full active:opacity-80"
-            onPress={() => {
-              // Replace with navigation or validation
-              console.log({ country, phone });
-            }}
+            className="items-center p-4 m-2 bg-white rounded-full"
+            onPress={() => router.push('/(auth)/SignupGoogle')}
           >
-            <Ionicons name="arrow-forward" size={20} color="#000" />
+            <Text className="font-medium text-black">Continue with Google</Text>
+          </Pressable>
+
+          <Pressable
+            className="items-center p-4 m-2 bg-white rounded-full"
+            onPress={() => router.push('/(auth)/SignupEmail')}
+          >
+            <Text className="font-medium text-black">
+              Create account with Email
+            </Text>
+          </Pressable>
+
+          <Pressable
+            className="items-center p-4 m-2 bg-white rounded-full"
+            onPress={() => router.push('/(auth)/SignupPhone')}
+          >
+            <Text className="font-medium text-black">
+              Use cell phone number
+            </Text>
+          </Pressable>
+        </View>
+
+        {/* Footer */}
+        <View className="items-center mt-6 mb-10">
+          <Pressable onPress={() => router.push('/(auth)/login')}>
+            <Text className="text-sm text-white underline">
+              Already have an account? Sign In
+            </Text>
           </Pressable>
         </View>
       </SafeAreaView>
@@ -74,4 +63,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;
