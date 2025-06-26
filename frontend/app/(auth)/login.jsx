@@ -59,7 +59,10 @@ export default function Login() {
         </Pressable>
       </View>
 
-      <Pressable className="bg-black rounded-full py-4 mb-10">
+      <Pressable
+        className="bg-black rounded-full py-4 mb-10"
+        onPress={() => router.push('/onboarding/step1')}
+      >
         <Text className="text-center text-white font-semibold">Login</Text>
       </Pressable>
 
