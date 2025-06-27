@@ -1,6 +1,8 @@
 import { createContext, useState } from 'react';
 import { View, Pressable, Text } from 'react-native';
 import { Slot, useSegments, useRouter } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
 
 export const OnboardingContext = createContext();
 
@@ -14,6 +16,8 @@ export default function OnboardingLayout() {
   const isFinal = currentStep === 'step7';
 
   const [selectedRole, setSelectedRole] = useState(null);
+  // accumulate all form entries here
+  const [onboardingData, setOnboardingData] = useState({});
 
   // Skip layout wrapper on step7 (e.g. thank you page)
   if (isFinal) return <Slot />;
@@ -24,10 +28,17 @@ export default function OnboardingLayout() {
   };
 
   return (
-    <OnboardingContext.Provider value={{ selectedRole, setSelectedRole }}>
-      <View className="relative flex-1 bg-white">
+    <OnboardingContext.Provider
+      value={{
+        selectedRole,
+        setSelectedRole,
+        onboardingData,
+        setOnboardingData,
+      }}
+    >
+      <SafeAreaView edges={['top']} className="relative flex-1 bg-white">
         {/* Progress Bar */}
-        <View className="absolute top-0 left-0 right-0 h-1 bg-gray-300 z-10">
+        <View className="absolute top-safe left-0 right-0 h-1 bg-gray-300 z-10">
           <View
             style={{
               width: `${((idx + 1) / steps.length) * 100}%`,
@@ -37,40 +48,29 @@ export default function OnboardingLayout() {
           />
         </View>
 
-        {/* Back Button */}
-        {idx > 0 && (
-          <Pressable
-            className="absolute top-4 right-4 z-20"
-            onPress={() => router.back()}
-          >
-            <Text className="text-blue-600">Back</Text>
-          </Pressable>
-        )}
+        {/* skip/back row */}
+        <View className="absolute top-safe left-4 right-6 mt-2 flex-row justify-between z-20">
+          {idx > 0 ? (
+            <Pressable onPress={() => router.back()} className="p-1">
+              <Ionicons name="arrow-back" size={28} color="#000" />
+            </Pressable>
+          ) : (
+            <View /> // placeholder to keep spacing
+          )}
+          {idx === 2 ? (
+            <Pressable onPress={goToNextStep} className="p-1">
+              <Text className="text-gray-500 text-xl">Skip</Text>
+            </Pressable>
+          ) : (
+            <View /> // placeholder when skip is hidden
+          )}
+        </View>
 
-        {/* Current Step */}
-        <Slot />
-
-        {/* Next Button - always goes forward */}
-        <Pressable
-          className={`absolute bottom-10 left-6 right-6 rounded-full py-4 ${
-            currentStep === 'step1' && !selectedRole
-              ? 'bg-gray-300'
-              : 'bg-black'
-          }`}
-          onPress={goToNextStep}
-          disabled={currentStep === 'step1' && !selectedRole}
-        >
-          <Text
-            className={`text-center font-semibold ${
-              currentStep === 'step1' && !selectedRole
-                ? 'text-gray-500'
-                : 'text-white'
-            }`}
-          >
-            Next
-          </Text>
-        </Pressable>
-      </View>
+        {/* step content with padding */}
+        <View className="flex-1 pt-safe mt-4">
+          <Slot />
+        </View>
+      </SafeAreaView>
     </OnboardingContext.Provider>
   );
 }
