@@ -9,14 +9,20 @@ export default function FirstNameScreen() {
   const { selectedRole, onboardingData, setOnboardingData } =
     useContext(OnboardingContext);
 
+  const handleNext = () => {
+    if (!firstName || !selectedRole) return;
+    setOnboardingData({ ...onboardingData, firstName });
+    router.push(`/${selectedRole}/step3`);
+  };
+
   return (
     <View className="relative flex-1 bg-white px-6 pt-6">
-      {/* Content aligned to top */}
       <View>
         <Text className="text-4xl font-bold mb-4">What's your first name?</Text>
         <TextInput
           className="border-b-2 border-gray-300 py-2 text-lg mb-4"
-          placeholder="Enter your first name"
+          placeholder="First name"
+          autoCapitalize="words"
           value={firstName}
           onChangeText={setFirstName}
           autoFocus
@@ -29,16 +35,11 @@ export default function FirstNameScreen() {
         </Text>
       </View>
 
-      {/* step‐level Next button at bottom */}
       <Pressable
         className={`absolute bottom-10 left-6 right-6 rounded-full py-4 ${
           !firstName ? 'bg-gray-300' : 'bg-black'
         }`}
-        onPress={() => {
-          if (!firstName || !selectedRole) return;
-          setOnboardingData({ ...onboardingData, firstName });
-          router.push(`/${selectedRole}/step3`);
-        }}
+        onPress={handleNext}
         disabled={!firstName}
       >
         <Text

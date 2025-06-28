@@ -33,7 +33,8 @@ export default function SeekerSkillsScreen() {
   const handleNext = () => {
     if (selectedSkills.length >= 3 && selectedSkills.length <= 8) {
       setOnboardingData({ ...onboardingData, skills: selectedSkills });
-      router.push('/seeker/step5'); // Replace with actual next step
+       router.push(`/${selectedRole}/step5`);
+
     }
   };
 

@@ -25,7 +25,6 @@ export default function Login() {
         onChangeText={setEmail}
       />
 
-      {/* Password */}
       <Text className="text-base font-semibold mb-1">Password</Text>
       <View className="relative mb-4">
         <TextInput

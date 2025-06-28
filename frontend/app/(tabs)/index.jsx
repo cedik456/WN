@@ -58,7 +58,6 @@ const Home = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white" edges={['top', 'left', 'right', 'bottom']}>
-      {/* Header */}
       <View className="px-6 py-4 bg-white shadow-sm">
         <View className="flex-row items-center justify-between">
           <Image source={HomepageLogo} />
@@ -70,7 +69,6 @@ const Home = () => {
           />
         </View>
       </View>
-      {/* Swiper deck */}
       <View className="flex-1 items-center justify-center px-4 pb-16">
         <Swiper
           cards={mockProfiles}

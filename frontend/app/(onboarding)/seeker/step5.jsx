@@ -1,7 +1,7 @@
 import { View, Text, TextInput, Pressable, ScrollView } from 'react-native';
 import { useState, useContext } from 'react';
 import { useRouter } from 'expo-router';
-import { OnboardingContext } from '../_layout'; // assuming context is shared at seeker level
+import { OnboardingContext } from '../_layout'; 
 
 export default function LocationScreen() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function LocationScreen() {
         ...onboardingData,
         location,
       });
-      router.push('../finish'); // ✅ this goes to onboarding/finish.jsx
+      router.push('../finish'); 
     }
   };
 
@@ -24,8 +24,7 @@ export default function LocationScreen() {
       <ScrollView className="px-6 pt-6 pb-28">
         <Text className="text-4xl font-bold mb-2">Location</Text>
         <Text className="text-md text-gray-600 mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua
+          This will help us connect you with opportunities in your area. 
         </Text>
 
         <TextInput

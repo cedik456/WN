@@ -23,7 +23,7 @@ export default function JobPreferencesScreen() {
         environment,
         experience,
       });
-      router.push('/seeker/step4');
+    router.push(`/${selectedRole}/step4`);
     }
   };
 

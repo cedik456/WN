@@ -32,9 +32,7 @@ const SignupPhone = () => {
           everyone on Who’s Next? is real.
         </Text>
 
-        {/* INPUT */}
         <View className="flex-row mb-6 space-x-4">
-          {/* CHANGE IF DONE INSTALLING THE COUNTRY PICKER */}
           <TextInput
             placeholder="Country"
             placeholderTextColor="#999"
@@ -52,7 +50,6 @@ const SignupPhone = () => {
           />
         </View>
 
-        {/* Notifying user for the privacy */}
         <Text className="mb-10 ml-5 text-sm text-gray-400">
           We never share this with anyone and it won’t be on your profile
         </Text>
@@ -61,7 +58,6 @@ const SignupPhone = () => {
           <Pressable
             className="items-center justify-center w-12 h-12 mr-5 bg-gray-200 rounded-full active:opacity-80"
             onPress={() => {
-              // Replace with navigation or validation
               console.log({ country, phone });
             }}
           >

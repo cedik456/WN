@@ -11,8 +11,7 @@ export default function RoleSelectionScreen() {
     <View className="flex-1 bg-white px-6 pt-6">
       <Text className="text-4xl font-bold mb-2">What is your role?</Text>
       <Text className="text-gray-600 mb-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua
+        Tell us what type of user you are and how you plan to use our application.
       </Text>
 
       <Pressable
@@ -49,7 +48,6 @@ export default function RoleSelectionScreen() {
         Learn why we ask for this info.
       </Text>
 
-      {/* step‐level Next button */}
       <Pressable
         className={`absolute bottom-10 left-6 right-6 rounded-full py-4 ${
           !selectedRole ? 'bg-gray-300' : 'bg-black'

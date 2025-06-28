@@ -10,7 +10,6 @@ const SignupEmail = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-white px-6 pt-4">
-      {/* Back Arrow */}
       <Pressable onPress={() => router.back()} className="mb-4">
         <Ionicons name="arrow-back" size={24} color="#000" />
       </Pressable>
