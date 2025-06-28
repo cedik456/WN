@@ -6,7 +6,7 @@ import { OnboardingContext } from '../_layout';
 
 export default function JobPreferencesScreen() {
   const router = useRouter();
-  const { onboardingData, setOnboardingData } = useContext(OnboardingContext);
+  const { selectedRole, onboardingData, setOnboardingData } = useContext(OnboardingContext);
   const firstName = onboardingData.firstName || 'placeholder';
 
   const [jobType, setJobType] = useState(onboardingData.jobType || '');

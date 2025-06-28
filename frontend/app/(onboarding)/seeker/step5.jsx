@@ -5,7 +5,7 @@ import { OnboardingContext } from '../_layout';
 
 export default function LocationScreen() {
   const router = useRouter();
-  const { onboardingData, setOnboardingData } = useContext(OnboardingContext);
+  const { selectedRole, onboardingData, setOnboardingData } = useContext(OnboardingContext);
 
   const [location, setLocation] = useState(onboardingData.location || '');
 
@@ -15,7 +15,7 @@ export default function LocationScreen() {
         ...onboardingData,
         location,
       });
-      router.push('../finish'); 
+      router.push(`../finish`); 
     }
   };
 

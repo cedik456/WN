@@ -1,8 +1,7 @@
 import { View, Text, Pressable } from 'react-native';
 import { useRouter } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useContext } from 'react';
-import { OnboardingContext } from '../_layout';
+import { OnboardingContext } from './_layout';
 
 export default function Finish() {
   const router = useRouter();
@@ -10,7 +9,7 @@ export default function Finish() {
   const matchTarget = selectedRole === 'employer' ? 'candidates' : 'employers';
 
   return (
-    <SafeAreaView className="flex-1 bg-white" edges={['top']}>
+    <View className="flex-1 bg-white">
       <View className="flex-1 px-6 justify-center items-center space-y-6">
         <Text className="text-4xl font-bold text-center mb-2">You're all set!</Text>
         <Text className="text-md text-center">
@@ -26,6 +25,6 @@ export default function Finish() {
           <Text className="text-center text-white font-semibold">Continue</Text>
         </Pressable>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }

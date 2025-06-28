@@ -18,7 +18,7 @@ export default function CompanyNameScreen() {
   return (
     <View className="relative flex-1 bg-white px-6 pt-6">
       <View>
-        <Text className="text-4xl font-bold mb-4">What's your company name?</Text>
+        <Text className="text-4xl font-bold mb-4">What's your company's name?</Text>
         <TextInput
           className="border-b-2 border-gray-300 py-2 text-lg mb-4"
           placeholder="Enter your company name"

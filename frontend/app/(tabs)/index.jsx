@@ -69,11 +69,11 @@ const Home = () => {
           />
         </View>
       </View>
-      <View className="flex-1 items-center justify-center px-4 pb-16">
+      <View className="flex-1 items-center justify-center px-4 pb-32">
         <Swiper
           cards={mockProfiles}
           renderCard={(card, index) => <ProfileCard key={index} card={card} />}
-           // overlayLabels={{
+          // overlayLabels={{
           //   left: {
           //     title: "NOPE",
           //     style: {

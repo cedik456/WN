@@ -5,7 +5,7 @@ import { OnboardingContext } from '../_layout';
 
 export default function LocationScreen() {
   const router = useRouter();
-  const { onboardingData, setOnboardingData } = useContext(OnboardingContext);
+  const { selectedRole, onboardingData, setOnboardingData } = useContext(OnboardingContext);
 
   const [location, setLocation] = useState(onboardingData.location || '');
 
@@ -22,9 +22,9 @@ export default function LocationScreen() {
   return (
     <View className="relative flex-1">
       <ScrollView className="px-6 pt-6 pb-28">
-        <Text className="text-4xl font-bold mb-2">Location</Text>
-        <Text className="text-md text-gray-600 mb-5">
-          This will help job seekers decide if the company is a good fit for them.
+        <Text className="text-4xl font-bold mb-4">Location</Text>
+        <Text className="text-md text-gray-500 mb-5">
+          This will help job seekers decide if the company will be a good fit for them.
         </Text>
 
         <TextInput

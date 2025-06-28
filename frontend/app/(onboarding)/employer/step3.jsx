@@ -30,7 +30,7 @@ export default function HiringPositionScreen() {
           This will be shown to job seekers in their search.
         </Text>
         <Text className="text-black font-semibold text-md mb-4">
-          You can update this later in Settings.
+          You can update this later in the Settings.
         </Text>
       </View>
 

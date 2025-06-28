@@ -15,7 +15,7 @@ const skillOptions = [
 
 export default function SeekerSkillsScreen() {
   const router = useRouter();
-  const { onboardingData, setOnboardingData } = useContext(OnboardingContext);
+  const { selectedRole, onboardingData, setOnboardingData } = useContext(OnboardingContext);
   const firstName = onboardingData.firstName || 'there';
 
   const [selectedSkills, setSelectedSkills] = useState(onboardingData.skills || []);
