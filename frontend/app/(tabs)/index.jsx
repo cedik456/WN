@@ -57,24 +57,25 @@ const Home = () => {
   ];
 
   return (
-    <SafeAreaView className="flex-1" edges={['left', 'right', 'bottom']}>
-      <View className="px-5 bg-white">
-        {/* Header */}
-        <View className="flex-row items-center justify-between my-5">
+    <SafeAreaView className="flex-1 bg-white" edges={['top', 'left', 'right', 'bottom']}>
+      {/* Header */}
+      <View className="px-6 py-4 bg-white shadow-sm">
+        <View className="flex-row items-center justify-between">
           <Image source={HomepageLogo} />
           <Ionicons
             name="options-outline"
-            size={24}
-            color="#000"
+            size={28}
+            color="#333"
             onPress={() => router.push('./filters')}
           />
         </View>
       </View>
-      <View className="flex-1 items-center justify-center">
+      {/* Swiper deck */}
+      <View className="flex-1 items-center justify-center px-4 pb-16">
         <Swiper
           cards={mockProfiles}
           renderCard={(card, index) => <ProfileCard key={index} card={card} />}
-          // overlayLabels={{
+           // overlayLabels={{
           //   left: {
           //     title: "NOPE",
           //     style: {
@@ -118,15 +119,14 @@ const Home = () => {
           //     },
           //   },
           // }}
-          swipeThreshold={50}
-          overlayLabelsOpacity={1}
-          stackSize={3}
-          cardIndex={0}
-          useViewOverflow={false}
-          backgroundColor="transparent"
-          cardVerticalMargin={10}
+          containerStyle={{ flex: 1, backgroundColor: 'transparent' }}
+          style={{ flex: 1 }}
+          verticalSwipe={false}
           disableTopSwipe
           disableBottomSwipe
+          stackSize={3}
+          stackSeparation={15}
+          animateCardOpacity
         />
       </View>
     </SafeAreaView>

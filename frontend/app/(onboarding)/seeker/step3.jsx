@@ -55,40 +55,40 @@ export default function JobPreferencesScreen() {
           {`Let’s talk about what you want, ${firstName}.`}
         </Text>
 
-        <Text className="text-md text-gray-600 mb-5">
+        <Text className="text-md text-gray-600 mb-1">
           This step will help employers make an informed decision when
           considering hiring you and help you find the right job that fits your
           needs.
         </Text>
 
-        <View className="h-0.5 bg-gray-200 mb-5" />
+        <View className="h-0.5 bg-gray-200 mb-4" />
 
         <Text className="text-xl font-semibold mb-2">
           What job type do you want?
         </Text>
-        <View className="flex-row flex-wrap mb-5">
+        <View className="flex-row flex-wrap mb-4">
           {renderOption('Full-time', 'full-time', jobType, setJobType)}
           {renderOption('Part-time', 'part-time', jobType, setJobType)}
           {renderOption('Internship', 'internship', jobType, setJobType)}
         </View>
 
-        <View className="h-0.5 bg-gray-200 mb-5" />
+        <View className="h-0.5 bg-gray-200 mb-4" />
 
         <Text className="text-xl font-semibold mb-2">
           What job environment you want?
         </Text>
-        <View className="flex-row flex-wrap mb-5">
+        <View className="flex-row flex-wrap mb-4">
           {renderOption('On-site', 'on-site', environment, setEnvironment)}
           {renderOption('Remote', 'remote', environment, setEnvironment)}
           {renderOption('Hybrid', 'hybrid', environment, setEnvironment)}
         </View>
 
-        <View className="h-0.5 bg-gray-200 mb-5" />
+        <View className="h-0.5 bg-gray-200 mb-4" />
 
         <Text className="text-xl font-semibold mb-2">
           How many years of experience do you have?
         </Text>
-        <View className="border border-gray-300 rounded-lg mb-5">
+        <View className="mb-1">
           <Picker
             selectedValue={experience}
             onValueChange={(itemValue) => setExperience(itemValue)}
@@ -100,10 +100,12 @@ export default function JobPreferencesScreen() {
           </Picker>
         </View>
 
+        <View className="h-0.5 bg-gray-200 mb-4" />
+
         <Text className="text-gray-500 text-md mb-1">
           This is how it will appear on your profile
         </Text>
-        <Text className="text-black font-semibold text-md mb-5">
+        <Text className="text-black font-semibold text-md mb-4">
           It cannot be changed later.
         </Text>
 

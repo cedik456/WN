@@ -13,7 +13,7 @@ export default function OnboardingLayout() {
   const steps = ['step1', 'step2', 'step3', 'step4', 'step5', 'step6'];
   const currentStep = segments[segments.length - 1];
   const idx = steps.indexOf(currentStep);
-  const isFinal = currentStep === 'step7';
+  const isFinal = currentStep === 'finish';
 
   const [selectedRole, setSelectedRole] = useState(null);
   // accumulate all form entries here
@@ -23,7 +23,7 @@ export default function OnboardingLayout() {
   if (isFinal) return <Slot />;
 
   const goToNextStep = () => {
-    const nextStep = idx + 1 === steps.length ? 'step7' : steps[idx + 1];
+    const nextStep = idx + 1 === steps.length ? 'finish' : steps[idx + 1];
     router.push(`/${nextStep}`);
   };
 
@@ -57,7 +57,7 @@ export default function OnboardingLayout() {
           ) : (
             <View /> // placeholder to keep spacing
           )}
-          {idx === 2 ? (
+          {idx > 1 ? (
             <Pressable onPress={goToNextStep} className="p-1">
               <Text className="text-gray-500 text-xl">Skip</Text>
             </Pressable>
