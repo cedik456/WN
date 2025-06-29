@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   card: {
+    width: 340, // fix card width
     alignSelf: 'center',
     borderRadius: 20,
     padding: 20,
@@ -79,12 +80,11 @@ const styles = StyleSheet.create({
   skillsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: 10,
-    maxWidth: 280,
+    marginHorizontal: -5,
   },
 
   skillPill: {
-    flexDirection: 'row',
+    margin: 5,
     paddingHorizontal: 10,
     paddingVertical: 4,
     borderRadius: 9999,

@@ -8,12 +8,10 @@ import { Ionicons } from "@expo/vector-icons";
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* Header */}
       <View style={styles.header}>
         <Image source={HomepageLogo} />
         <Ionicons name="options-outline" size="24" color="#000" />
       </View>
-      {/* Card */}
       <View style={styles.card}>
         <Image style={styles.avatar} source={Avatar1} />
         <View style={[styles.flexRow, { marginBottom: 10 }]}>
@@ -23,7 +21,6 @@ const HomeScreen = () => {
         <Text style={styles.job}>Software Engineer</Text>
         <Text style={styles.experience}>3 years of experience</Text>
 
-        {/* Skills */}
         <Text style={styles.skillsTitle}>Skills</Text>
         <View style={styles.skillsContainer}>
           <View style={[styles.skillPill, styles.bgReact]}>
